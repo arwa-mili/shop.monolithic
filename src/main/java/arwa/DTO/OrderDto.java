@@ -15,8 +15,9 @@ public class OrderDto {
     private Long id;
     private BigDecimal totalPrice;
     private String status;
-    private ZonedDateTime shipped;
+    private ZonedDateTime shiipped;
     private Long paymentId;
+
     private AdressDto shipmentAddress;
     private Set<OrderItemDto> orderItems;
     private CartDto cart;
