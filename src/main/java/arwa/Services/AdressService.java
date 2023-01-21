@@ -5,7 +5,9 @@ import arwa.DTO.AdressDto;
 import arwa.Entities.Adress;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class AdressService {
     public static Adress createFromDto(AdressDto addressDto) {
