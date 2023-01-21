@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>arwa</groupId>
   <artifactId>shop.monolithic</artifactId>
@@ -26,6 +27,7 @@
         <scope>import</scope>
       </dependency>
     </dependencies>
+
   </dependencyManagement>
   <dependencies>
     <dependency>
@@ -87,6 +89,7 @@
   </dependencies>
   <build>
     <plugins>
+
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>
@@ -98,9 +101,11 @@
               <goal>build</goal>
               <goal>generate-code</goal>
               <goal>generate-code-tests</goal>
+
             </goals>
           </execution>
         </executions>
+
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -117,7 +122,8 @@
         <configuration>
           <systemPropertyVariables>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <maven.home>${maven.home}</maven.home>
+            <maven.home>${ C:\Program Files\apache-maven-3.8.6-bin\apache-maven-3.8.6
+}</maven.home>
           </systemPropertyVariables>
         </configuration>
       </plugin>
@@ -134,7 +140,8 @@
               <systemPropertyVariables>
                 <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                 <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                <maven.home>${maven.home}</maven.home>
+                <maven.home>${ C:\Program Files\apache-maven-3.8.6-bin\apache-maven-3.8.6
+}</maven.home>
               </systemPropertyVariables>
             </configuration>
           </execution>
