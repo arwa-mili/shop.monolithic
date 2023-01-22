@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
 
-@Transactional
+
 public class CategoryService {
     CategoryRepository categoryRepository;
     ProductRepository productRepository;

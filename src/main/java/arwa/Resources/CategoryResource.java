@@ -17,15 +17,13 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
 
-/**
- * @author Nebrass Lamouchi
- */
+
 
 @Path("/categories")
 @Tag(name = "category", description = "All the category methods")
 public class CategoryResource {
 
-    @Inject
+
     CategoryService categoryService;
 
     @GET

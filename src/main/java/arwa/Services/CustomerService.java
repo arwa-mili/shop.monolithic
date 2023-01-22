@@ -8,15 +8,18 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.transaction.Transactional;
+
+
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Slf4j
 
-@Transactional
+
 public class CustomerService {
     CustomerRepository customerRepository;
     public CustomerDto create(CustomerDto customerDto) {
@@ -37,7 +40,7 @@ public class CustomerService {
                 .map(CustomerService::mapToDto)
                 .collect(Collectors.toList());
     }
-    @Transactional
+
     public CustomerDto findById(Long id) {
         log.debug("Request to get Customer : {}", id);
         return this.customerRepository.findById(id)
