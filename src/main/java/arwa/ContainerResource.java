@@ -9,7 +9,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 @Path("/hello")
-public class GreetingResource {
+public class ContainerResource {
 
    @GET
    @Produces(MediaType.TEXT_PLAIN)

@@ -20,11 +20,30 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>junit-jupiter</artifactId>
+        <version>1.14.3</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.testcontainers</groupId>
+        <artifactId>postgresql</artifactId>
+        <version>1.14.3</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>${quarkus.platform.artifact-id}</artifactId>
         <version>${quarkus.platform.version}</version>
         <type>pom</type>
         <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.jacoco</groupId>
+        <artifactId>org.jacoco.agent</artifactId>
+        <classifier>runtime</classifier>
+        <scope>test</scope>
+        <version>0.8.5</version>
       </dependency>
     </dependencies>
 
@@ -70,6 +89,14 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-reactive</artifactId>
     </dependency>
+
+      <dependency>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok</artifactId>
+          <version>1.18.24</version>
+          <scope>compile</scope>
+      </dependency>
+    <!-- Test dependencies -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
@@ -80,12 +107,19 @@
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>org.projectlombok</groupId>
-          <artifactId>lombok</artifactId>
-          <version>1.18.24</version>
-          <scope>compile</scope>
-      </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>1.3.5</version>
+      <scope>test</scope>
+    </dependency>
+
+
   </dependencies>
   <build>
     <plugins>
@@ -106,6 +140,42 @@
           </execution>
         </executions>
 
+
+      </plugin>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <excludedGroups>integration</excludedGroups>
+          <systemPropertyVariables>
+            <jacoco-agent.destfile>
+              ${project.build.directory}/jacoco-ut.exec
+            </jacoco-agent.destfile>
+            <java.util.logging.manager>
+              org.jboss.logmanager.LogManager
+            </java.util.logging.manager>
+            <maven.home>${ C:\Program Files\apache-maven-3.8.6-bin\apache-maven-3.8.6
+}</maven.home>
+          </systemPropertyVariables>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <excludedGroups>!integration</excludedGroups>
+              <groups>integration</groups>
+              <systemPropertyVariables>
+                <jacoco-agent.destfile>
+                  ${project.build.directory}/jacoco-it.exec
+                </jacoco-agent.destfile>
+              </systemPropertyVariables>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -147,6 +217,7 @@
           </execution>
         </executions>
       </plugin>
+
     </plugins>
   </build>
   <profiles>
