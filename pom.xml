@@ -96,6 +96,7 @@
           <version>1.18.24</version>
           <scope>compile</scope>
       </dependency>
+
     <!-- Test dependencies -->
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -193,7 +194,7 @@
           <systemPropertyVariables>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
             <maven.home>${ C:\Program Files\apache-maven-3.8.6-bin\apache-maven-3.8.6
-}</maven.home>
+            }</maven.home>
           </systemPropertyVariables>
         </configuration>
       </plugin>
@@ -211,7 +212,7 @@
                 <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
                 <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
                 <maven.home>${ C:\Program Files\apache-maven-3.8.6-bin\apache-maven-3.8.6
-}</maven.home>
+                }</maven.home>
               </systemPropertyVariables>
             </configuration>
           </execution>
@@ -231,6 +232,11 @@
       <properties>
         <skipITs>false</skipITs>
         <quarkus.package.type>native</quarkus.package.type>
+
+          <sonar.projectKey>shop.monolithic</sonar.projectKey>
+          <sonar.organization>rw@@arwa</sonar.organization>
+          <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+
       </properties>
     </profile>
   </profiles>
